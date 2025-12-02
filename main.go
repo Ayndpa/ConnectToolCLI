@@ -9,8 +9,6 @@ import (
 	"runtime"
 	"time"
 
-	pb "ConnectToolCLI/connecttool"
-
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -37,13 +35,11 @@ func main() {
 	}
 	defer conn.Close()
 
-	client := pb.NewConnectToolServiceClient(conn)
+	client := NewConnectToolServiceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	switch command {
-	case "init":
-		initSteam(ctx, client)
 	case "create":
 		createLobby(ctx, client)
 	case "join":
@@ -84,7 +80,6 @@ func defaultSocketPath() string {
 func printUsage() {
 	fmt.Println("Usage: connecttoolcli [flags] <command> [args...]")
 	fmt.Println("Commands:")
-	fmt.Println("  init                     Initialize Steam")
 	fmt.Println("  create                   Create a new lobby")
 	fmt.Println("  join <lobby_id>          Join a lobby")
 	fmt.Println("  leave                    Leave current lobby")
@@ -98,40 +93,32 @@ func printUsage() {
 	flag.PrintDefaults()
 }
 
-func initSteam(ctx context.Context, client pb.ConnectToolServiceClient) {
-	r, err := client.InitSteam(ctx, &pb.InitSteamRequest{})
-	if err != nil {
-		log.Fatalf("could not init steam: %v", err)
-	}
-	fmt.Printf("Success: %v, Message: %s\n", r.GetSuccess(), r.GetMessage())
-}
-
-func createLobby(ctx context.Context, client pb.ConnectToolServiceClient) {
-	r, err := client.CreateLobby(ctx, &pb.CreateLobbyRequest{})
+func createLobby(ctx context.Context, client ConnectToolServiceClient) {
+	r, err := client.CreateLobby(ctx, &CreateLobbyRequest{})
 	if err != nil {
 		log.Fatalf("could not create lobby: %v", err)
 	}
 	fmt.Printf("Success: %v, Lobby ID: %s\n", r.GetSuccess(), r.GetLobbyId())
 }
 
-func joinLobby(ctx context.Context, client pb.ConnectToolServiceClient, lobbyID string) {
-	r, err := client.JoinLobby(ctx, &pb.JoinLobbyRequest{LobbyId: lobbyID})
+func joinLobby(ctx context.Context, client ConnectToolServiceClient, lobbyID string) {
+	r, err := client.JoinLobby(ctx, &JoinLobbyRequest{LobbyId: lobbyID})
 	if err != nil {
 		log.Fatalf("could not join lobby: %v", err)
 	}
 	fmt.Printf("Success: %v, Message: %s\n", r.GetSuccess(), r.GetMessage())
 }
 
-func leaveLobby(ctx context.Context, client pb.ConnectToolServiceClient) {
-	r, err := client.LeaveLobby(ctx, &pb.LeaveLobbyRequest{})
+func leaveLobby(ctx context.Context, client ConnectToolServiceClient) {
+	r, err := client.LeaveLobby(ctx, &LeaveLobbyRequest{})
 	if err != nil {
 		log.Fatalf("could not leave lobby: %v", err)
 	}
 	fmt.Printf("Success: %v\n", r.GetSuccess())
 }
 
-func getLobbyInfo(ctx context.Context, client pb.ConnectToolServiceClient) {
-	r, err := client.GetLobbyInfo(ctx, &pb.GetLobbyInfoRequest{})
+func getLobbyInfo(ctx context.Context, client ConnectToolServiceClient) {
+	r, err := client.GetLobbyInfo(ctx, &GetLobbyInfoRequest{})
 	if err != nil {
 		log.Fatalf("could not get lobby info: %v", err)
 	}
@@ -145,8 +132,8 @@ func getLobbyInfo(ctx context.Context, client pb.ConnectToolServiceClient) {
 	}
 }
 
-func getFriendLobbies(ctx context.Context, client pb.ConnectToolServiceClient) {
-	r, err := client.GetFriendLobbies(ctx, &pb.GetFriendLobbiesRequest{})
+func getFriendLobbies(ctx context.Context, client ConnectToolServiceClient) {
+	r, err := client.GetFriendLobbies(ctx, &GetFriendLobbiesRequest{})
 	if err != nil {
 		log.Fatalf("could not get friend lobbies: %v", err)
 	}
@@ -156,16 +143,16 @@ func getFriendLobbies(ctx context.Context, client pb.ConnectToolServiceClient) {
 	}
 }
 
-func inviteFriend(ctx context.Context, client pb.ConnectToolServiceClient, friendID string) {
-	r, err := client.InviteFriend(ctx, &pb.InviteFriendRequest{FriendSteamId: friendID})
+func inviteFriend(ctx context.Context, client ConnectToolServiceClient, friendID string) {
+	r, err := client.InviteFriend(ctx, &InviteFriendRequest{FriendSteamId: friendID})
 	if err != nil {
 		log.Fatalf("could not invite friend: %v", err)
 	}
 	fmt.Printf("Success: %v\n", r.GetSuccess())
 }
 
-func getVPNStatus(ctx context.Context, client pb.ConnectToolServiceClient) {
-	r, err := client.GetVPNStatus(ctx, &pb.GetVPNStatusRequest{})
+func getVPNStatus(ctx context.Context, client ConnectToolServiceClient) {
+	r, err := client.GetVPNStatus(ctx, &GetVPNStatusRequest{})
 	if err != nil {
 		log.Fatalf("could not get VPN status: %v", err)
 	}
@@ -183,8 +170,8 @@ func getVPNStatus(ctx context.Context, client pb.ConnectToolServiceClient) {
 	}
 }
 
-func getVPNRoutingTable(ctx context.Context, client pb.ConnectToolServiceClient) {
-	r, err := client.GetVPNRoutingTable(ctx, &pb.GetVPNRoutingTableRequest{})
+func getVPNRoutingTable(ctx context.Context, client ConnectToolServiceClient) {
+	r, err := client.GetVPNRoutingTable(ctx, &GetVPNRoutingTableRequest{})
 	if err != nil {
 		log.Fatalf("could not get VPN routing table: %v", err)
 	}
