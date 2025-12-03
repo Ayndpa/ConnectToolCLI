@@ -21,6 +21,86 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVersionRequest) Reset() {
+	*x = GetVersionRequest{}
+	mi := &file_connect_tool_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVersionRequest) ProtoMessage() {}
+
+func (x *GetVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_connect_tool_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetVersionRequest) Descriptor() ([]byte, []int) {
+	return file_connect_tool_proto_rawDescGZIP(), []int{0}
+}
+
+type GetVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Version       string                 `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVersionResponse) Reset() {
+	*x = GetVersionResponse{}
+	mi := &file_connect_tool_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVersionResponse) ProtoMessage() {}
+
+func (x *GetVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_connect_tool_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetVersionResponse) Descriptor() ([]byte, []int) {
+	return file_connect_tool_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetVersionResponse) GetVersion() string {
+	if x != nil {
+		return x.Version
+	}
+	return ""
+}
+
 type CreateLobbyRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -29,7 +109,7 @@ type CreateLobbyRequest struct {
 
 func (x *CreateLobbyRequest) Reset() {
 	*x = CreateLobbyRequest{}
-	mi := &file_connect_tool_proto_msgTypes[0]
+	mi := &file_connect_tool_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -41,7 +121,7 @@ func (x *CreateLobbyRequest) String() string {
 func (*CreateLobbyRequest) ProtoMessage() {}
 
 func (x *CreateLobbyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[0]
+	mi := &file_connect_tool_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -54,7 +134,7 @@ func (x *CreateLobbyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateLobbyRequest.ProtoReflect.Descriptor instead.
 func (*CreateLobbyRequest) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{0}
+	return file_connect_tool_proto_rawDescGZIP(), []int{2}
 }
 
 type CreateLobbyResponse struct {
@@ -67,7 +147,7 @@ type CreateLobbyResponse struct {
 
 func (x *CreateLobbyResponse) Reset() {
 	*x = CreateLobbyResponse{}
-	mi := &file_connect_tool_proto_msgTypes[1]
+	mi := &file_connect_tool_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -79,7 +159,7 @@ func (x *CreateLobbyResponse) String() string {
 func (*CreateLobbyResponse) ProtoMessage() {}
 
 func (x *CreateLobbyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[1]
+	mi := &file_connect_tool_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -92,7 +172,7 @@ func (x *CreateLobbyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateLobbyResponse.ProtoReflect.Descriptor instead.
 func (*CreateLobbyResponse) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{1}
+	return file_connect_tool_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CreateLobbyResponse) GetSuccess() bool {
@@ -118,7 +198,7 @@ type JoinLobbyRequest struct {
 
 func (x *JoinLobbyRequest) Reset() {
 	*x = JoinLobbyRequest{}
-	mi := &file_connect_tool_proto_msgTypes[2]
+	mi := &file_connect_tool_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -130,7 +210,7 @@ func (x *JoinLobbyRequest) String() string {
 func (*JoinLobbyRequest) ProtoMessage() {}
 
 func (x *JoinLobbyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[2]
+	mi := &file_connect_tool_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -143,7 +223,7 @@ func (x *JoinLobbyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JoinLobbyRequest.ProtoReflect.Descriptor instead.
 func (*JoinLobbyRequest) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{2}
+	return file_connect_tool_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *JoinLobbyRequest) GetLobbyId() string {
@@ -163,7 +243,7 @@ type JoinLobbyResponse struct {
 
 func (x *JoinLobbyResponse) Reset() {
 	*x = JoinLobbyResponse{}
-	mi := &file_connect_tool_proto_msgTypes[3]
+	mi := &file_connect_tool_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -175,7 +255,7 @@ func (x *JoinLobbyResponse) String() string {
 func (*JoinLobbyResponse) ProtoMessage() {}
 
 func (x *JoinLobbyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[3]
+	mi := &file_connect_tool_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -188,7 +268,7 @@ func (x *JoinLobbyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JoinLobbyResponse.ProtoReflect.Descriptor instead.
 func (*JoinLobbyResponse) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{3}
+	return file_connect_tool_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *JoinLobbyResponse) GetSuccess() bool {
@@ -213,7 +293,7 @@ type LeaveLobbyRequest struct {
 
 func (x *LeaveLobbyRequest) Reset() {
 	*x = LeaveLobbyRequest{}
-	mi := &file_connect_tool_proto_msgTypes[4]
+	mi := &file_connect_tool_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -225,7 +305,7 @@ func (x *LeaveLobbyRequest) String() string {
 func (*LeaveLobbyRequest) ProtoMessage() {}
 
 func (x *LeaveLobbyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[4]
+	mi := &file_connect_tool_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -238,7 +318,7 @@ func (x *LeaveLobbyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LeaveLobbyRequest.ProtoReflect.Descriptor instead.
 func (*LeaveLobbyRequest) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{4}
+	return file_connect_tool_proto_rawDescGZIP(), []int{6}
 }
 
 type LeaveLobbyResponse struct {
@@ -250,7 +330,7 @@ type LeaveLobbyResponse struct {
 
 func (x *LeaveLobbyResponse) Reset() {
 	*x = LeaveLobbyResponse{}
-	mi := &file_connect_tool_proto_msgTypes[5]
+	mi := &file_connect_tool_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -262,7 +342,7 @@ func (x *LeaveLobbyResponse) String() string {
 func (*LeaveLobbyResponse) ProtoMessage() {}
 
 func (x *LeaveLobbyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[5]
+	mi := &file_connect_tool_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -275,7 +355,7 @@ func (x *LeaveLobbyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LeaveLobbyResponse.ProtoReflect.Descriptor instead.
 func (*LeaveLobbyResponse) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{5}
+	return file_connect_tool_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *LeaveLobbyResponse) GetSuccess() bool {
@@ -297,7 +377,7 @@ type LobbyMember struct {
 
 func (x *LobbyMember) Reset() {
 	*x = LobbyMember{}
-	mi := &file_connect_tool_proto_msgTypes[6]
+	mi := &file_connect_tool_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -309,7 +389,7 @@ func (x *LobbyMember) String() string {
 func (*LobbyMember) ProtoMessage() {}
 
 func (x *LobbyMember) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[6]
+	mi := &file_connect_tool_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -322,7 +402,7 @@ func (x *LobbyMember) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LobbyMember.ProtoReflect.Descriptor instead.
 func (*LobbyMember) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{6}
+	return file_connect_tool_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *LobbyMember) GetSteamId() string {
@@ -361,7 +441,7 @@ type GetLobbyInfoRequest struct {
 
 func (x *GetLobbyInfoRequest) Reset() {
 	*x = GetLobbyInfoRequest{}
-	mi := &file_connect_tool_proto_msgTypes[7]
+	mi := &file_connect_tool_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -373,7 +453,7 @@ func (x *GetLobbyInfoRequest) String() string {
 func (*GetLobbyInfoRequest) ProtoMessage() {}
 
 func (x *GetLobbyInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[7]
+	mi := &file_connect_tool_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -386,7 +466,7 @@ func (x *GetLobbyInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLobbyInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetLobbyInfoRequest) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{7}
+	return file_connect_tool_proto_rawDescGZIP(), []int{9}
 }
 
 type GetLobbyInfoResponse struct {
@@ -400,7 +480,7 @@ type GetLobbyInfoResponse struct {
 
 func (x *GetLobbyInfoResponse) Reset() {
 	*x = GetLobbyInfoResponse{}
-	mi := &file_connect_tool_proto_msgTypes[8]
+	mi := &file_connect_tool_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -412,7 +492,7 @@ func (x *GetLobbyInfoResponse) String() string {
 func (*GetLobbyInfoResponse) ProtoMessage() {}
 
 func (x *GetLobbyInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[8]
+	mi := &file_connect_tool_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -425,7 +505,7 @@ func (x *GetLobbyInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLobbyInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetLobbyInfoResponse) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{8}
+	return file_connect_tool_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetLobbyInfoResponse) GetIsInLobby() bool {
@@ -460,7 +540,7 @@ type FriendLobby struct {
 
 func (x *FriendLobby) Reset() {
 	*x = FriendLobby{}
-	mi := &file_connect_tool_proto_msgTypes[9]
+	mi := &file_connect_tool_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -472,7 +552,7 @@ func (x *FriendLobby) String() string {
 func (*FriendLobby) ProtoMessage() {}
 
 func (x *FriendLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[9]
+	mi := &file_connect_tool_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -485,7 +565,7 @@ func (x *FriendLobby) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FriendLobby.ProtoReflect.Descriptor instead.
 func (*FriendLobby) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{9}
+	return file_connect_tool_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *FriendLobby) GetSteamId() string {
@@ -517,7 +597,7 @@ type GetFriendLobbiesRequest struct {
 
 func (x *GetFriendLobbiesRequest) Reset() {
 	*x = GetFriendLobbiesRequest{}
-	mi := &file_connect_tool_proto_msgTypes[10]
+	mi := &file_connect_tool_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -529,7 +609,7 @@ func (x *GetFriendLobbiesRequest) String() string {
 func (*GetFriendLobbiesRequest) ProtoMessage() {}
 
 func (x *GetFriendLobbiesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[10]
+	mi := &file_connect_tool_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -542,7 +622,7 @@ func (x *GetFriendLobbiesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFriendLobbiesRequest.ProtoReflect.Descriptor instead.
 func (*GetFriendLobbiesRequest) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{10}
+	return file_connect_tool_proto_rawDescGZIP(), []int{12}
 }
 
 type GetFriendLobbiesResponse struct {
@@ -554,7 +634,7 @@ type GetFriendLobbiesResponse struct {
 
 func (x *GetFriendLobbiesResponse) Reset() {
 	*x = GetFriendLobbiesResponse{}
-	mi := &file_connect_tool_proto_msgTypes[11]
+	mi := &file_connect_tool_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -566,7 +646,7 @@ func (x *GetFriendLobbiesResponse) String() string {
 func (*GetFriendLobbiesResponse) ProtoMessage() {}
 
 func (x *GetFriendLobbiesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[11]
+	mi := &file_connect_tool_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -579,7 +659,7 @@ func (x *GetFriendLobbiesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFriendLobbiesResponse.ProtoReflect.Descriptor instead.
 func (*GetFriendLobbiesResponse) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{11}
+	return file_connect_tool_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetFriendLobbiesResponse) GetLobbies() []*FriendLobby {
@@ -598,7 +678,7 @@ type InviteFriendRequest struct {
 
 func (x *InviteFriendRequest) Reset() {
 	*x = InviteFriendRequest{}
-	mi := &file_connect_tool_proto_msgTypes[12]
+	mi := &file_connect_tool_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -610,7 +690,7 @@ func (x *InviteFriendRequest) String() string {
 func (*InviteFriendRequest) ProtoMessage() {}
 
 func (x *InviteFriendRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[12]
+	mi := &file_connect_tool_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -623,7 +703,7 @@ func (x *InviteFriendRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InviteFriendRequest.ProtoReflect.Descriptor instead.
 func (*InviteFriendRequest) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{12}
+	return file_connect_tool_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *InviteFriendRequest) GetFriendSteamId() string {
@@ -642,7 +722,7 @@ type InviteFriendResponse struct {
 
 func (x *InviteFriendResponse) Reset() {
 	*x = InviteFriendResponse{}
-	mi := &file_connect_tool_proto_msgTypes[13]
+	mi := &file_connect_tool_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -654,7 +734,7 @@ func (x *InviteFriendResponse) String() string {
 func (*InviteFriendResponse) ProtoMessage() {}
 
 func (x *InviteFriendResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[13]
+	mi := &file_connect_tool_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -667,7 +747,7 @@ func (x *InviteFriendResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InviteFriendResponse.ProtoReflect.Descriptor instead.
 func (*InviteFriendResponse) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{13}
+	return file_connect_tool_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *InviteFriendResponse) GetSuccess() bool {
@@ -690,7 +770,7 @@ type VPNStats struct {
 
 func (x *VPNStats) Reset() {
 	*x = VPNStats{}
-	mi := &file_connect_tool_proto_msgTypes[14]
+	mi := &file_connect_tool_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -702,7 +782,7 @@ func (x *VPNStats) String() string {
 func (*VPNStats) ProtoMessage() {}
 
 func (x *VPNStats) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[14]
+	mi := &file_connect_tool_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -715,7 +795,7 @@ func (x *VPNStats) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VPNStats.ProtoReflect.Descriptor instead.
 func (*VPNStats) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{14}
+	return file_connect_tool_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *VPNStats) GetPacketsSent() uint64 {
@@ -761,7 +841,7 @@ type GetVPNStatusRequest struct {
 
 func (x *GetVPNStatusRequest) Reset() {
 	*x = GetVPNStatusRequest{}
-	mi := &file_connect_tool_proto_msgTypes[15]
+	mi := &file_connect_tool_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -773,7 +853,7 @@ func (x *GetVPNStatusRequest) String() string {
 func (*GetVPNStatusRequest) ProtoMessage() {}
 
 func (x *GetVPNStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[15]
+	mi := &file_connect_tool_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -786,7 +866,7 @@ func (x *GetVPNStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVPNStatusRequest.ProtoReflect.Descriptor instead.
 func (*GetVPNStatusRequest) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{15}
+	return file_connect_tool_proto_rawDescGZIP(), []int{17}
 }
 
 type GetVPNStatusResponse struct {
@@ -801,7 +881,7 @@ type GetVPNStatusResponse struct {
 
 func (x *GetVPNStatusResponse) Reset() {
 	*x = GetVPNStatusResponse{}
-	mi := &file_connect_tool_proto_msgTypes[16]
+	mi := &file_connect_tool_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -813,7 +893,7 @@ func (x *GetVPNStatusResponse) String() string {
 func (*GetVPNStatusResponse) ProtoMessage() {}
 
 func (x *GetVPNStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[16]
+	mi := &file_connect_tool_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -826,7 +906,7 @@ func (x *GetVPNStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVPNStatusResponse.ProtoReflect.Descriptor instead.
 func (*GetVPNStatusResponse) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{16}
+	return file_connect_tool_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *GetVPNStatusResponse) GetEnabled() bool {
@@ -868,7 +948,7 @@ type VPNRoute struct {
 
 func (x *VPNRoute) Reset() {
 	*x = VPNRoute{}
-	mi := &file_connect_tool_proto_msgTypes[17]
+	mi := &file_connect_tool_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -880,7 +960,7 @@ func (x *VPNRoute) String() string {
 func (*VPNRoute) ProtoMessage() {}
 
 func (x *VPNRoute) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[17]
+	mi := &file_connect_tool_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -893,7 +973,7 @@ func (x *VPNRoute) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VPNRoute.ProtoReflect.Descriptor instead.
 func (*VPNRoute) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{17}
+	return file_connect_tool_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *VPNRoute) GetIp() uint32 {
@@ -925,7 +1005,7 @@ type GetVPNRoutingTableRequest struct {
 
 func (x *GetVPNRoutingTableRequest) Reset() {
 	*x = GetVPNRoutingTableRequest{}
-	mi := &file_connect_tool_proto_msgTypes[18]
+	mi := &file_connect_tool_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -937,7 +1017,7 @@ func (x *GetVPNRoutingTableRequest) String() string {
 func (*GetVPNRoutingTableRequest) ProtoMessage() {}
 
 func (x *GetVPNRoutingTableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[18]
+	mi := &file_connect_tool_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -950,7 +1030,7 @@ func (x *GetVPNRoutingTableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVPNRoutingTableRequest.ProtoReflect.Descriptor instead.
 func (*GetVPNRoutingTableRequest) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{18}
+	return file_connect_tool_proto_rawDescGZIP(), []int{20}
 }
 
 type GetVPNRoutingTableResponse struct {
@@ -962,7 +1042,7 @@ type GetVPNRoutingTableResponse struct {
 
 func (x *GetVPNRoutingTableResponse) Reset() {
 	*x = GetVPNRoutingTableResponse{}
-	mi := &file_connect_tool_proto_msgTypes[19]
+	mi := &file_connect_tool_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -974,7 +1054,7 @@ func (x *GetVPNRoutingTableResponse) String() string {
 func (*GetVPNRoutingTableResponse) ProtoMessage() {}
 
 func (x *GetVPNRoutingTableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_connect_tool_proto_msgTypes[19]
+	mi := &file_connect_tool_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -987,7 +1067,7 @@ func (x *GetVPNRoutingTableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVPNRoutingTableResponse.ProtoReflect.Descriptor instead.
 func (*GetVPNRoutingTableResponse) Descriptor() ([]byte, []int) {
-	return file_connect_tool_proto_rawDescGZIP(), []int{19}
+	return file_connect_tool_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetVPNRoutingTableResponse) GetRoutes() []*VPNRoute {
@@ -1001,7 +1081,10 @@ var File_connect_tool_proto protoreflect.FileDescriptor
 
 const file_connect_tool_proto_rawDesc = "" +
 	"\n" +
-	"\x12connect_tool.proto\x12\vconnecttool\"\x14\n" +
+	"\x12connect_tool.proto\x12\vconnecttool\"\x13\n" +
+	"\x11GetVersionRequest\".\n" +
+	"\x12GetVersionResponse\x12\x18\n" +
+	"\aversion\x18\x01 \x01(\tR\aversion\"\x14\n" +
 	"\x12CreateLobbyRequest\"J\n" +
 	"\x13CreateLobbyResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x19\n" +
@@ -1056,8 +1139,10 @@ const file_connect_tool_proto_rawDesc = "" +
 	"\bis_local\x18\x03 \x01(\bR\aisLocal\"\x1b\n" +
 	"\x19GetVPNRoutingTableRequest\"K\n" +
 	"\x1aGetVPNRoutingTableResponse\x12-\n" +
-	"\x06routes\x18\x01 \x03(\v2\x15.connecttool.VPNRouteR\x06routes2\xc8\x05\n" +
-	"\x12ConnectToolService\x12P\n" +
+	"\x06routes\x18\x01 \x03(\v2\x15.connecttool.VPNRouteR\x06routes2\x97\x06\n" +
+	"\x12ConnectToolService\x12M\n" +
+	"\n" +
+	"GetVersion\x12\x1e.connecttool.GetVersionRequest\x1a\x1f.connecttool.GetVersionResponse\x12P\n" +
 	"\vCreateLobby\x12\x1f.connecttool.CreateLobbyRequest\x1a .connecttool.CreateLobbyResponse\x12J\n" +
 	"\tJoinLobby\x12\x1d.connecttool.JoinLobbyRequest\x1a\x1e.connecttool.JoinLobbyResponse\x12M\n" +
 	"\n" +
@@ -1066,7 +1151,7 @@ const file_connect_tool_proto_rawDesc = "" +
 	"\x10GetFriendLobbies\x12$.connecttool.GetFriendLobbiesRequest\x1a%.connecttool.GetFriendLobbiesResponse\x12S\n" +
 	"\fInviteFriend\x12 .connecttool.InviteFriendRequest\x1a!.connecttool.InviteFriendResponse\x12S\n" +
 	"\fGetVPNStatus\x12 .connecttool.GetVPNStatusRequest\x1a!.connecttool.GetVPNStatusResponse\x12e\n" +
-	"\x12GetVPNRoutingTable\x12&.connecttool.GetVPNRoutingTableRequest\x1a'.connecttool.GetVPNRoutingTableResponseB\tZ\a./;mainb\x06proto3"
+	"\x12GetVPNRoutingTable\x12&.connecttool.GetVPNRoutingTableRequest\x1a'.connecttool.GetVPNRoutingTableResponseB\bZ\x06.;mainb\x06proto3"
 
 var (
 	file_connect_tool_proto_rawDescOnce sync.Once
@@ -1080,52 +1165,56 @@ func file_connect_tool_proto_rawDescGZIP() []byte {
 	return file_connect_tool_proto_rawDescData
 }
 
-var file_connect_tool_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
+var file_connect_tool_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
 var file_connect_tool_proto_goTypes = []any{
-	(*CreateLobbyRequest)(nil),         // 0: connecttool.CreateLobbyRequest
-	(*CreateLobbyResponse)(nil),        // 1: connecttool.CreateLobbyResponse
-	(*JoinLobbyRequest)(nil),           // 2: connecttool.JoinLobbyRequest
-	(*JoinLobbyResponse)(nil),          // 3: connecttool.JoinLobbyResponse
-	(*LeaveLobbyRequest)(nil),          // 4: connecttool.LeaveLobbyRequest
-	(*LeaveLobbyResponse)(nil),         // 5: connecttool.LeaveLobbyResponse
-	(*LobbyMember)(nil),                // 6: connecttool.LobbyMember
-	(*GetLobbyInfoRequest)(nil),        // 7: connecttool.GetLobbyInfoRequest
-	(*GetLobbyInfoResponse)(nil),       // 8: connecttool.GetLobbyInfoResponse
-	(*FriendLobby)(nil),                // 9: connecttool.FriendLobby
-	(*GetFriendLobbiesRequest)(nil),    // 10: connecttool.GetFriendLobbiesRequest
-	(*GetFriendLobbiesResponse)(nil),   // 11: connecttool.GetFriendLobbiesResponse
-	(*InviteFriendRequest)(nil),        // 12: connecttool.InviteFriendRequest
-	(*InviteFriendResponse)(nil),       // 13: connecttool.InviteFriendResponse
-	(*VPNStats)(nil),                   // 14: connecttool.VPNStats
-	(*GetVPNStatusRequest)(nil),        // 15: connecttool.GetVPNStatusRequest
-	(*GetVPNStatusResponse)(nil),       // 16: connecttool.GetVPNStatusResponse
-	(*VPNRoute)(nil),                   // 17: connecttool.VPNRoute
-	(*GetVPNRoutingTableRequest)(nil),  // 18: connecttool.GetVPNRoutingTableRequest
-	(*GetVPNRoutingTableResponse)(nil), // 19: connecttool.GetVPNRoutingTableResponse
+	(*GetVersionRequest)(nil),          // 0: connecttool.GetVersionRequest
+	(*GetVersionResponse)(nil),         // 1: connecttool.GetVersionResponse
+	(*CreateLobbyRequest)(nil),         // 2: connecttool.CreateLobbyRequest
+	(*CreateLobbyResponse)(nil),        // 3: connecttool.CreateLobbyResponse
+	(*JoinLobbyRequest)(nil),           // 4: connecttool.JoinLobbyRequest
+	(*JoinLobbyResponse)(nil),          // 5: connecttool.JoinLobbyResponse
+	(*LeaveLobbyRequest)(nil),          // 6: connecttool.LeaveLobbyRequest
+	(*LeaveLobbyResponse)(nil),         // 7: connecttool.LeaveLobbyResponse
+	(*LobbyMember)(nil),                // 8: connecttool.LobbyMember
+	(*GetLobbyInfoRequest)(nil),        // 9: connecttool.GetLobbyInfoRequest
+	(*GetLobbyInfoResponse)(nil),       // 10: connecttool.GetLobbyInfoResponse
+	(*FriendLobby)(nil),                // 11: connecttool.FriendLobby
+	(*GetFriendLobbiesRequest)(nil),    // 12: connecttool.GetFriendLobbiesRequest
+	(*GetFriendLobbiesResponse)(nil),   // 13: connecttool.GetFriendLobbiesResponse
+	(*InviteFriendRequest)(nil),        // 14: connecttool.InviteFriendRequest
+	(*InviteFriendResponse)(nil),       // 15: connecttool.InviteFriendResponse
+	(*VPNStats)(nil),                   // 16: connecttool.VPNStats
+	(*GetVPNStatusRequest)(nil),        // 17: connecttool.GetVPNStatusRequest
+	(*GetVPNStatusResponse)(nil),       // 18: connecttool.GetVPNStatusResponse
+	(*VPNRoute)(nil),                   // 19: connecttool.VPNRoute
+	(*GetVPNRoutingTableRequest)(nil),  // 20: connecttool.GetVPNRoutingTableRequest
+	(*GetVPNRoutingTableResponse)(nil), // 21: connecttool.GetVPNRoutingTableResponse
 }
 var file_connect_tool_proto_depIdxs = []int32{
-	6,  // 0: connecttool.GetLobbyInfoResponse.members:type_name -> connecttool.LobbyMember
-	9,  // 1: connecttool.GetFriendLobbiesResponse.lobbies:type_name -> connecttool.FriendLobby
-	14, // 2: connecttool.GetVPNStatusResponse.stats:type_name -> connecttool.VPNStats
-	17, // 3: connecttool.GetVPNRoutingTableResponse.routes:type_name -> connecttool.VPNRoute
-	0,  // 4: connecttool.ConnectToolService.CreateLobby:input_type -> connecttool.CreateLobbyRequest
-	2,  // 5: connecttool.ConnectToolService.JoinLobby:input_type -> connecttool.JoinLobbyRequest
-	4,  // 6: connecttool.ConnectToolService.LeaveLobby:input_type -> connecttool.LeaveLobbyRequest
-	7,  // 7: connecttool.ConnectToolService.GetLobbyInfo:input_type -> connecttool.GetLobbyInfoRequest
-	10, // 8: connecttool.ConnectToolService.GetFriendLobbies:input_type -> connecttool.GetFriendLobbiesRequest
-	12, // 9: connecttool.ConnectToolService.InviteFriend:input_type -> connecttool.InviteFriendRequest
-	15, // 10: connecttool.ConnectToolService.GetVPNStatus:input_type -> connecttool.GetVPNStatusRequest
-	18, // 11: connecttool.ConnectToolService.GetVPNRoutingTable:input_type -> connecttool.GetVPNRoutingTableRequest
-	1,  // 12: connecttool.ConnectToolService.CreateLobby:output_type -> connecttool.CreateLobbyResponse
-	3,  // 13: connecttool.ConnectToolService.JoinLobby:output_type -> connecttool.JoinLobbyResponse
-	5,  // 14: connecttool.ConnectToolService.LeaveLobby:output_type -> connecttool.LeaveLobbyResponse
-	8,  // 15: connecttool.ConnectToolService.GetLobbyInfo:output_type -> connecttool.GetLobbyInfoResponse
-	11, // 16: connecttool.ConnectToolService.GetFriendLobbies:output_type -> connecttool.GetFriendLobbiesResponse
-	13, // 17: connecttool.ConnectToolService.InviteFriend:output_type -> connecttool.InviteFriendResponse
-	16, // 18: connecttool.ConnectToolService.GetVPNStatus:output_type -> connecttool.GetVPNStatusResponse
-	19, // 19: connecttool.ConnectToolService.GetVPNRoutingTable:output_type -> connecttool.GetVPNRoutingTableResponse
-	12, // [12:20] is the sub-list for method output_type
-	4,  // [4:12] is the sub-list for method input_type
+	8,  // 0: connecttool.GetLobbyInfoResponse.members:type_name -> connecttool.LobbyMember
+	11, // 1: connecttool.GetFriendLobbiesResponse.lobbies:type_name -> connecttool.FriendLobby
+	16, // 2: connecttool.GetVPNStatusResponse.stats:type_name -> connecttool.VPNStats
+	19, // 3: connecttool.GetVPNRoutingTableResponse.routes:type_name -> connecttool.VPNRoute
+	0,  // 4: connecttool.ConnectToolService.GetVersion:input_type -> connecttool.GetVersionRequest
+	2,  // 5: connecttool.ConnectToolService.CreateLobby:input_type -> connecttool.CreateLobbyRequest
+	4,  // 6: connecttool.ConnectToolService.JoinLobby:input_type -> connecttool.JoinLobbyRequest
+	6,  // 7: connecttool.ConnectToolService.LeaveLobby:input_type -> connecttool.LeaveLobbyRequest
+	9,  // 8: connecttool.ConnectToolService.GetLobbyInfo:input_type -> connecttool.GetLobbyInfoRequest
+	12, // 9: connecttool.ConnectToolService.GetFriendLobbies:input_type -> connecttool.GetFriendLobbiesRequest
+	14, // 10: connecttool.ConnectToolService.InviteFriend:input_type -> connecttool.InviteFriendRequest
+	17, // 11: connecttool.ConnectToolService.GetVPNStatus:input_type -> connecttool.GetVPNStatusRequest
+	20, // 12: connecttool.ConnectToolService.GetVPNRoutingTable:input_type -> connecttool.GetVPNRoutingTableRequest
+	1,  // 13: connecttool.ConnectToolService.GetVersion:output_type -> connecttool.GetVersionResponse
+	3,  // 14: connecttool.ConnectToolService.CreateLobby:output_type -> connecttool.CreateLobbyResponse
+	5,  // 15: connecttool.ConnectToolService.JoinLobby:output_type -> connecttool.JoinLobbyResponse
+	7,  // 16: connecttool.ConnectToolService.LeaveLobby:output_type -> connecttool.LeaveLobbyResponse
+	10, // 17: connecttool.ConnectToolService.GetLobbyInfo:output_type -> connecttool.GetLobbyInfoResponse
+	13, // 18: connecttool.ConnectToolService.GetFriendLobbies:output_type -> connecttool.GetFriendLobbiesResponse
+	15, // 19: connecttool.ConnectToolService.InviteFriend:output_type -> connecttool.InviteFriendResponse
+	18, // 20: connecttool.ConnectToolService.GetVPNStatus:output_type -> connecttool.GetVPNStatusResponse
+	21, // 21: connecttool.ConnectToolService.GetVPNRoutingTable:output_type -> connecttool.GetVPNRoutingTableResponse
+	13, // [13:22] is the sub-list for method output_type
+	4,  // [4:13] is the sub-list for method input_type
 	4,  // [4:4] is the sub-list for extension type_name
 	4,  // [4:4] is the sub-list for extension extendee
 	0,  // [0:4] is the sub-list for field type_name
@@ -1142,7 +1231,7 @@ func file_connect_tool_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_connect_tool_proto_rawDesc), len(file_connect_tool_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   20,
+			NumMessages:   22,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

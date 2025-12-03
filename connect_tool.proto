@@ -2,9 +2,12 @@ syntax = "proto3";
 
 package connecttool;
 
-option go_package = "./;main";
+option go_package = ".;main";
 
 service ConnectToolService {
+  // System
+  rpc GetVersion (GetVersionRequest) returns (GetVersionResponse);
+
   // Lobby Management
   rpc CreateLobby (CreateLobbyRequest) returns (CreateLobbyResponse);
   rpc JoinLobby (JoinLobbyRequest) returns (JoinLobbyResponse);
@@ -16,6 +19,11 @@ service ConnectToolService {
   // VPN Management
   rpc GetVPNStatus (GetVPNStatusRequest) returns (GetVPNStatusResponse);
   rpc GetVPNRoutingTable (GetVPNRoutingTableRequest) returns (GetVPNRoutingTableResponse);
+}
+
+message GetVersionRequest {}
+message GetVersionResponse {
+  string version = 1;
 }
 
 message CreateLobbyRequest {}

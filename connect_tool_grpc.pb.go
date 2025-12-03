@@ -19,6 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	ConnectToolService_GetVersion_FullMethodName         = "/connecttool.ConnectToolService/GetVersion"
 	ConnectToolService_CreateLobby_FullMethodName        = "/connecttool.ConnectToolService/CreateLobby"
 	ConnectToolService_JoinLobby_FullMethodName          = "/connecttool.ConnectToolService/JoinLobby"
 	ConnectToolService_LeaveLobby_FullMethodName         = "/connecttool.ConnectToolService/LeaveLobby"
@@ -33,6 +34,8 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ConnectToolServiceClient interface {
+	// System
+	GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error)
 	// Lobby Management
 	CreateLobby(ctx context.Context, in *CreateLobbyRequest, opts ...grpc.CallOption) (*CreateLobbyResponse, error)
 	JoinLobby(ctx context.Context, in *JoinLobbyRequest, opts ...grpc.CallOption) (*JoinLobbyResponse, error)
@@ -51,6 +54,16 @@ type connectToolServiceClient struct {
 
 func NewConnectToolServiceClient(cc grpc.ClientConnInterface) ConnectToolServiceClient {
 	return &connectToolServiceClient{cc}
+}
+
+func (c *connectToolServiceClient) GetVersion(ctx context.Context, in *GetVersionRequest, opts ...grpc.CallOption) (*GetVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionResponse)
+	err := c.cc.Invoke(ctx, ConnectToolService_GetVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *connectToolServiceClient) CreateLobby(ctx context.Context, in *CreateLobbyRequest, opts ...grpc.CallOption) (*CreateLobbyResponse, error) {
@@ -137,6 +150,8 @@ func (c *connectToolServiceClient) GetVPNRoutingTable(ctx context.Context, in *G
 // All implementations must embed UnimplementedConnectToolServiceServer
 // for forward compatibility.
 type ConnectToolServiceServer interface {
+	// System
+	GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error)
 	// Lobby Management
 	CreateLobby(context.Context, *CreateLobbyRequest) (*CreateLobbyResponse, error)
 	JoinLobby(context.Context, *JoinLobbyRequest) (*JoinLobbyResponse, error)
@@ -157,6 +172,9 @@ type ConnectToolServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedConnectToolServiceServer struct{}
 
+func (UnimplementedConnectToolServiceServer) GetVersion(context.Context, *GetVersionRequest) (*GetVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersion not implemented")
+}
 func (UnimplementedConnectToolServiceServer) CreateLobby(context.Context, *CreateLobbyRequest) (*CreateLobbyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateLobby not implemented")
 }
@@ -200,6 +218,24 @@ func RegisterConnectToolServiceServer(s grpc.ServiceRegistrar, srv ConnectToolSe
 		t.testEmbeddedByValue()
 	}
 	s.RegisterService(&ConnectToolService_ServiceDesc, srv)
+}
+
+func _ConnectToolService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectToolServiceServer).GetVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectToolService_GetVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectToolServiceServer).GetVersion(ctx, req.(*GetVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _ConnectToolService_CreateLobby_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -353,6 +389,10 @@ var ConnectToolService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "connecttool.ConnectToolService",
 	HandlerType: (*ConnectToolServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetVersion",
+			Handler:    _ConnectToolService_GetVersion_Handler,
+		},
 		{
 			MethodName: "CreateLobby",
 			Handler:    _ConnectToolService_CreateLobby_Handler,

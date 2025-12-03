@@ -59,6 +59,8 @@ func main() {
 		}
 		inviteFriend(ctx, client, flag.Arg(1))
 
+	case "version":
+		getVersion(ctx, client)
 	case "vpn-status":
 		getVPNStatus(ctx, client)
 	case "vpn-routes":
@@ -80,6 +82,7 @@ func defaultSocketPath() string {
 func printUsage() {
 	fmt.Println("Usage: connecttoolcli [flags] <command> [args...]")
 	fmt.Println("Commands:")
+	fmt.Println("  version                  Get server version")
 	fmt.Println("  create                   Create a new lobby")
 	fmt.Println("  join <lobby_id>          Join a lobby")
 	fmt.Println("  leave                    Leave current lobby")
@@ -98,7 +101,7 @@ func createLobby(ctx context.Context, client ConnectToolServiceClient) {
 	if err != nil {
 		log.Fatalf("could not create lobby: %v", err)
 	}
-	fmt.Printf("Success: %v, Lobby ID: %s\n", r.GetSuccess(), r.GetLobbyId())
+	fmt.Printf("Success: %v\n", r.GetSuccess())
 }
 
 func joinLobby(ctx context.Context, client ConnectToolServiceClient, lobbyID string) {
@@ -149,6 +152,14 @@ func inviteFriend(ctx context.Context, client ConnectToolServiceClient, friendID
 		log.Fatalf("could not invite friend: %v", err)
 	}
 	fmt.Printf("Success: %v\n", r.GetSuccess())
+}
+
+func getVersion(ctx context.Context, client ConnectToolServiceClient) {
+	r, err := client.GetVersion(ctx, &GetVersionRequest{})
+	if err != nil {
+		log.Fatalf("could not get version: %v", err)
+	}
+	fmt.Printf("Version: %s\n", r.GetVersion())
 }
 
 func getVPNStatus(ctx context.Context, client ConnectToolServiceClient) {
